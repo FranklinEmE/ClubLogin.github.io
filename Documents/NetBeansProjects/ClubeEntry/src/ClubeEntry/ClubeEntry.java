@@ -6,6 +6,7 @@
 package ClubeEntry;
 
 
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -16,13 +17,16 @@ import javax.swing.JOptionPane;
  */
 public class ClubeEntry extends javax.swing.JFrame {
 double bothnum;
+    private Object jTextField1;
+    private Object EnterAge;
     /**
      * Creates new form ClubeEntry
      */
     public ClubeEntry() {
         initComponents();
+        
+        jPanel1.setFocusable(true);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,6 +36,10 @@ double bothnum;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jTextField2 = new javax.swing.JTextField();
+        DashBoard1 = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         DashBoard = new javax.swing.JTextField();
@@ -49,6 +57,35 @@ double bothnum;
         txtzero = new javax.swing.JButton();
         txtExit = new javax.swing.JButton();
 
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jTextField2.setText("jTextField2");
+
+        DashBoard1.setBackground(new java.awt.Color(102, 102, 102));
+        DashBoard1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        DashBoard1.setForeground(new java.awt.Color(255, 255, 255));
+        DashBoard1.setText("Enter Age");
+        DashBoard1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                DashBoard1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                DashBoard1FocusLost(evt);
+            }
+        });
+        DashBoard1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DashBoard1ActionPerformed(evt);
+            }
+        });
+        DashBoard1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                DashBoard1KeyTyped(evt);
+            }
+        });
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 12), "Club Login", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -56,7 +93,23 @@ double bothnum;
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("DashBoard");
 
+        DashBoard.setBackground(new java.awt.Color(102, 102, 102));
         DashBoard.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        DashBoard.setForeground(new java.awt.Color(255, 255, 255));
+        DashBoard.setText("Enter Age");
+        DashBoard.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                DashBoardFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                DashBoardFocusLost(evt);
+            }
+        });
+        DashBoard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DashBoardActionPerformed(evt);
+            }
+        });
         DashBoard.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 DashBoardKeyTyped(evt);
@@ -254,26 +307,28 @@ double bothnum;
     }// </editor-fold>//GEN-END:initComponents
 
     private void DashBoardKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DashBoardKeyTyped
-             char iNumber = evt.getKeyChar() ;
+
+        char iNumber = evt.getKeyChar() ;
       if(!(Character.isDigit(iNumber))
     || (iNumber == KeyEvent.VK_BACK_SPACE)
     || (iNumber == KeyEvent.VK_DELETE)){
         evt.consume();
     }
     
+      
     }//GEN-LAST:event_DashBoardKeyTyped
 
     private void EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterActionPerformed
   bothnum = Double.parseDouble(DashBoard.getText());
   int age = 18;
-       if(bothnum >= age ){
-           JOptionPane.showMessageDialog(null, "you are welcome to JBX club");
-       }else{
-                     JOptionPane.showMessageDialog(null, "you are under age to enter this club");
- 
-       }
+     if(bothnum > age ){
+            JOptionPane.showMessageDialog(null, " you are Welcome to JBX Club");       
+    }
+     else {
+        JOptionPane.showMessageDialog(null, "! you are Under age to Enter this Club");
+      
     }//GEN-LAST:event_EnterActionPerformed
-
+    }
     private void txtoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtoneActionPerformed
 String Enternumber = DashBoard.getText() + txtone.getText();
         DashBoard.setText(Enternumber);
@@ -317,15 +372,51 @@ String Enternumber = DashBoard.getText() + txtzero.getText();
         DashBoard.setText(Enternumber);    }//GEN-LAST:event_txtzeroActionPerformed
 
     private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
-      DashBoard.setText("");
+            DashBoard.setText("Enter Age");
+
     }//GEN-LAST:event_ResetActionPerformed
  private JFrame frame;
     private void txtExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtExitActionPerformed
 frame = new JFrame("Exit");
-if(JOptionPane.showConfirmDialog(frame, "confirm if you want to exit", "student Result System",
+if(JOptionPane.showConfirmDialog(frame, "confirm if you want to exit", "Login Result System",
 JOptionPane.YES_NO_OPTION)== JOptionPane.YES_NO_OPTION){
 System.exit(0);
 }    }//GEN-LAST:event_txtExitActionPerformed
+
+    private void DashBoardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashBoardActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DashBoardActionPerformed
+
+    private void DashBoardFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DashBoardFocusGained
+      if(DashBoard.getText().trim().equals("Enter Age")){
+      }
+      
+          DashBoard.setText("");
+    
+      DashBoard.setForeground(Color.yellow);
+    }//GEN-LAST:event_DashBoardFocusGained
+
+    private void DashBoardFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DashBoardFocusLost
+   if(DashBoard.getText().trim().equals("")){
+        DashBoard.setText("Enter Age") ;
+    }
+      DashBoard.setForeground(new Color(236, 240, 241));    }//GEN-LAST:event_DashBoardFocusLost
+
+    private void DashBoard1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DashBoard1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DashBoard1FocusGained
+
+    private void DashBoard1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_DashBoard1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DashBoard1FocusLost
+
+    private void DashBoard1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DashBoard1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DashBoard1ActionPerformed
+
+    private void DashBoard1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_DashBoard1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DashBoard1KeyTyped
 
     /**
      * @param args the command line arguments
@@ -364,10 +455,14 @@ System.exit(0);
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField DashBoard;
+    private javax.swing.JTextField DashBoard1;
     private javax.swing.JButton Enter;
     private javax.swing.JButton Reset;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JButton txtExit;
     private javax.swing.JButton txteight;
     private javax.swing.JButton txtfive;
