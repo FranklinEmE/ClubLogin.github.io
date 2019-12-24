@@ -321,7 +321,7 @@ double bothnum;
     private void EnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterActionPerformed
   bothnum = Double.parseDouble(DashBoard.getText());
   int age = 18;
-     if(bothnum > age ){
+     if(bothnum >= age ){
             JOptionPane.showMessageDialog(null, " you are Welcome to JBX Club");       
     }
      else {
