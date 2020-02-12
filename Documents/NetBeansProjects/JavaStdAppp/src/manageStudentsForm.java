@@ -270,8 +270,8 @@ public class manageStudentsForm extends javax.swing.JFrame {
 
 
 
-
-
+        
+        
   }
     }//GEN-LAST:event_jButtonRemoveStudentActionPerformed
 

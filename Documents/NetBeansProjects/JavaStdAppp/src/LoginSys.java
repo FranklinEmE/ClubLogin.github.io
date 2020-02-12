@@ -167,8 +167,6 @@ public class LoginSys extends javax.swing.JFrame {
     private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
     System.exit(0);
 
-
-
     }//GEN-LAST:event_CancelActionPerformed
 
     private void LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginActionPerformed
